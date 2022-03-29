@@ -62,58 +62,58 @@ dependencies {
     //testImplementation "org.robolectric:shadows-supportv4:3.8"
 }
 
-//task sourceJar(type: Jar) {
-//    from android.sourceSets.main.java.srcDirs
-//    archiveClassifier.set("sources")
-//}
-//
-//publishing {
-//    publications {
-//        bar(MavenPublication) {
-//            groupId 'com.example.webviewsdkagain'
-//            artifactId 'artifactagain'
-//            version '1.5'
-//            artifact sourceJar
-//            artifact("$buildDir/outputs/aar/WebviewSDK-debug.aar")
-//            pom.withXml {
-//                final dependenciesNode = asNode().appendNode('dependencies')
-//                ext.addDependency = { Dependency dep, String scope ->
-//                    if (dep.group == null || dep.version == null || dep.name == null || dep.name == "unspecified")
-//                        return
-//                    final dependencyNode = dependenciesNode.appendNode('dependency')
-//                    dependencyNode.appendNode('groupId', dep.group)
-//                    dependencyNode.appendNode('artifactId', dep.name)
-//                    dependencyNode.appendNode('version', dep.version)
-//                    dependencyNode.appendNode('scope', scope)
-//                    if (!dep.transitive) {
-//                        final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
-//                        exclusionNode.appendNode('groupId', '*')
-//                        exclusionNode.appendNode('artifactId', '*')
-//                    } else if (!dep.properties.excludeRules.empty) {
-//                        final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
-//                        dep.properties.excludeRules.each { ExcludeRule rule ->
-//                            exclusionNode.appendNode('groupId', rule.group ?: '*')
-//                            exclusionNode.appendNode('artifactId', rule.module ?: '*')
-//                        }
-//                    }
-//                }
-//                configurations.implementation.getDependencies().each { dep -> addDependency(dep, "compile") }
-//                configurations.api.getDependencies().each { dep -> addDependency(dep, "compile") }
-//                configurations.implementation.getDependencies().each { dep -> addDependency(dep, "runtime") }
-//            }
-//        }
-//    }
-//
-//    repositories {
-//        maven {
-//            name = "GitHubPackagesagain"
-//            url = uri("https://maven.pkg.github.com/rikeshgarg/biometricagain")
-//            credentials {
-//                username = "rikeshgarg" // Better if you use env variable
-//                password = "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"
-//                //password = "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"
-//
-//            }
-//        }
-//    }
-//}
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier.set("sources")
+}
+
+publishing {
+    publications {
+        bar(MavenPublication) {
+            groupId 'com.example.webviewsdkagain'
+            artifactId 'artifactagain'
+            version '1.7'
+            artifact sourceJar
+            artifact("$buildDir/outputs/aar/WebviewSDK-debug.aar")
+            pom.withXml {
+                final dependenciesNode = asNode().appendNode('dependencies')
+                ext.addDependency = { Dependency dep, String scope ->
+                    if (dep.group == null || dep.version == null || dep.name == null || dep.name == "unspecified")
+                        return
+                    final dependencyNode = dependenciesNode.appendNode('dependency')
+                    dependencyNode.appendNode('groupId', dep.group)
+                    dependencyNode.appendNode('artifactId', dep.name)
+                    dependencyNode.appendNode('version', dep.version)
+                    dependencyNode.appendNode('scope', scope)
+                    if (!dep.transitive) {
+                        final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+                        exclusionNode.appendNode('groupId', '*')
+                        exclusionNode.appendNode('artifactId', '*')
+                    } else if (!dep.properties.excludeRules.empty) {
+                        final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+                        dep.properties.excludeRules.each { ExcludeRule rule ->
+                            exclusionNode.appendNode('groupId', rule.group ?: '*')
+                            exclusionNode.appendNode('artifactId', rule.module ?: '*')
+                        }
+                    }
+                }
+                configurations.implementation.getDependencies().each { dep -> addDependency(dep, "compile") }
+                configurations.api.getDependencies().each { dep -> addDependency(dep, "compile") }
+                configurations.implementation.getDependencies().each { dep -> addDependency(dep, "runtime") }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackagesagain"
+            url = uri("https://maven.pkg.github.com/rikeshgarg/biometricagain")
+            credentials {
+                username = "rikeshgarg" // Better if you use env variable
+                password = "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"
+                //password = "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"
+
+            }
+        }
+    }
+}
