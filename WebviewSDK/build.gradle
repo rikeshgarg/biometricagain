@@ -70,9 +70,9 @@ dependencies {
 //publishing {
 //    publications {
 //        bar(MavenPublication) {
-//            groupId 'com.example.webviewsdk'
-//            artifactId 'artifact'
-//            version '1.2'
+//            groupId 'com.example.webviewsdkagain'
+//            artifactId 'artifactagain'
+//            version '1.5'
 //            artifact sourceJar
 //            artifact("$buildDir/outputs/aar/WebviewSDK-debug.aar")
 //            pom.withXml {
@@ -103,14 +103,14 @@ dependencies {
 //            }
 //        }
 //    }
-
+//
 //    repositories {
 //        maven {
-//            name = "GitHubPackages"
-//            url = uri("https://maven.pkg.github.com/rikeshgarg/androidbilmetrics")
+//            name = "GitHubPackagesagain"
+//            url = uri("https://maven.pkg.github.com/rikeshgarg/biometricagain")
 //            credentials {
 //                username = "rikeshgarg" // Better if you use env variable
-//                password = "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"
+//                password = "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"
 //                //password = "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"
 //
 //            }
